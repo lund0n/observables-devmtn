@@ -33,7 +33,7 @@
     "html-webpack-plugin": "^2.28.0",
     "husky": "^0.13.4",
     "lint-staged": "^3.5.1",
-    "prettier-eslint": "^6.2.3",
+    "prettier-eslint-cli": "^3.6.1",
     "rimraf": "^2.6.0",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.1"
@@ -86,7 +86,10 @@
       ]
     }
   },
-	"lint-staged": {
-		"*.js": ["prettier-eslint --write", "git add"]
-	}
+  "lint-staged": {
+    "*.js": [
+      "prettier-eslint --write",
+      "git add"
+    ]
+  }
 }
