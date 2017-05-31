@@ -10,7 +10,8 @@
     "dev": "webpack-dev-server",
     "json-server": "json-server -p 3001 generate.js",
     "lint": "eslint src",
-    "start": "concurrently \"npm run json-server\" \"npm run dev\""
+    "start": "concurrently \"npm run json-server\" \"npm run dev\"",
+    "precommit": "lint-staged"
   },
   "license": "MIT",
   "devDependencies": {
@@ -30,6 +31,8 @@
     "eslint-plugin-prettier": "^2.1.1",
     "eslint-plugin-react": "^7.0.1",
     "html-webpack-plugin": "^2.28.0",
+    "husky": "^0.13.4",
+    "lint-staged": "^3.5.1",
     "prettier-eslint": "^6.2.3",
     "rimraf": "^2.6.0",
     "webpack": "^2.6.1",
@@ -53,10 +56,10 @@
     },
     "extends": [
       "eslint:recommended",
-			"plugin:import/errors",
-			"plugin:import/warnings",
-			"plugin:import/react",
-			"plugin:react/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:import/react",
+      "plugin:react/recommended",
       "prettier",
       "prettier/react"
     ],
@@ -82,5 +85,8 @@
         }
       ]
     }
-  }
+  },
+	"lint-staged": {
+		"*.js": ["prettier-eslint --write", "git add"]
+	}
 }
