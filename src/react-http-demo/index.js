@@ -24,13 +24,14 @@ const resultStyle = css({
 })
 
 function performSearch(query) {
-	return Observable.ajax(`http://localhost:3000/api/people?name_like=${query}`)
-		.map(({ response }) => response)
+	return Observable.ajax(
+		`http://localhost:3000/api/people?name_like=${query}`,
+	).map(({ response }) => response)
 }
 const SearchResult = ({ name, avatar }) => (
 	<div {...resultStyle}>
 		<div>{name}</div>
-		<img className="person__images" src={avatar}/>
+		<img className="person__images" src={avatar} />
 	</div>
 )
 SearchResult.propTypes = {
@@ -39,7 +40,6 @@ SearchResult.propTypes = {
 }
 
 class Search extends Component {
-
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -48,11 +48,11 @@ class Search extends Component {
 		}
 		this.searchSubject$ = new Subject()
 		this.search$ = this.searchSubject$
-      .map(e => e.target.value)
-      .startWith('')
-      .debounceTime(300)
-      .distinctUntilChanged()
-      .switchMap(query => performSearch(query))
+			.map(e => e.target.value)
+			.startWith('')
+			.debounceTime(300)
+			.distinctUntilChanged()
+			.switchMap(query => performSearch(query))
 
 		this.search$.subscribe(results => this.setState({ results }))
 	}
@@ -67,21 +67,16 @@ class Search extends Component {
 				<h1>Search Demo</h1>
 				<label>
 					Search:
-					<input
-						value={value}
-						onChange={this.handleChange}
-					/>
+					<input value={value} onChange={this.handleChange} />
 				</label>
-				<br/>
+				<br />
 				<h2>Results</h2>
 				<div {...searchStyle}>
-					{ results.map(person => (
-						<SearchResult key={person.id} {...person}/>
-					)) }
+					{results.map(person => <SearchResult key={person.id} {...person} />)}
 				</div>
 			</div>
 		)
 	}
 }
 
-ReactDOM.render(<Search/>, document.getElementById('app'))
+ReactDOM.render(<Search />, document.getElementById('app'))

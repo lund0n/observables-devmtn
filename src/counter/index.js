@@ -18,21 +18,19 @@ const valueElement = qs('.counter--value')
 // const down$ = keydown$.filter(keyCode => keyCode === 40).mapTo(-5)
 // const left$ = keydown$.filter(keyCode => keyCode === 37).mapTo(-1)
 // const right$ = keydown$.filter(keyCode => keyCode === 39).mapTo(1)
-const increment$ = Observable.fromEvent(btnIncrement, 'click')
-  .map(() => 1)
-const decrement$ = Observable.fromEvent(btnDecrement, 'click')
-  .map(() => -1)
+const increment$ = Observable.fromEvent(btnIncrement, 'click').map(() => 1)
+const decrement$ = Observable.fromEvent(btnDecrement, 'click').map(() => -1)
 
 const counter$ = Observable.merge(
-  // up$,
-  // down$,
-  // left$,
-  // right$,
-  increment$,
-  decrement$
+	// up$,
+	// down$,
+	// left$,
+	// right$,
+	increment$,
+	decrement$,
 )
-  .startWith(0) // set a starting count value.
-  .scan((total, delta) => total + delta)
+	.startWith(0) // set a starting count value.
+	.scan((total, delta) => total + delta)
 
 counter$.subscribe(value => {
 	valueElement.textContent = value
