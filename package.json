@@ -22,23 +22,23 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
     "concurrently": "^3.3.0",
-    "eslint-config-xo-react": "^0.10.0",
-    "eslint-plugin-react": "^6.10.0",
+    "eslint-config-xo-react": "^0.12.0",
+    "eslint-plugin-react": "^7.0.1",
     "html-webpack-plugin": "^2.28.0",
     "rimraf": "^2.6.0",
-    "webpack": "^2.2.1",
+    "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.1",
-    "xo": "^0.17.1"
+    "xo": "^0.18.2"
   },
   "dependencies": {
     "faker": "^4.1.0",
-    "glamor": "^2.20.24",
-    "json-server": "^0.9.5",
+    "glamor": "^2.20.25",
+    "json-server": "^0.10.1",
     "lodash.times": "^4.3.2",
-    "prop-types": "^15.5.8",
+    "prop-types": "^15.5.10",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "rxjs": "^5.2.0"
+    "rxjs": "^5.4.0"
   },
   "xo": {
     "envs": [
