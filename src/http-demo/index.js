@@ -4,9 +4,9 @@ import { clearNodes, addPerson } from './utils'
 
 function performSearchFetch(query) {
 	return Observable.from(
-		fetch(
-			`http://localhost:3000/api/people?name_like=${query}`,
-		).then(response => response.json()),
+		fetch(`http://localhost:3000/api/people?name_like=${query}`).then(
+			response => response.json(),
+		),
 	)
 }
 function performSearchAjax(query) {
